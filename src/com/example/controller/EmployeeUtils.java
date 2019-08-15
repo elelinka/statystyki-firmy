@@ -2,8 +2,6 @@ package com.example.controller;
 
 import com.example.model.Employee;
 
-import java.util.Comparator;
-
 public class EmployeeUtils {
     public static double averageSalary(Employee[] employees) {
         double averageSalary = 0;
