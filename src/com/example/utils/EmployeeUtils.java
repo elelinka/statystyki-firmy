@@ -1,4 +1,4 @@
-package com.example.controller;
+package com.example.utils;
 
 import com.example.model.Employee;
 
@@ -37,6 +37,7 @@ public class EmployeeUtils {
         int numberOfEmployeesIT = 0;
         int numberOfEmployeesManagement = 0;
         int numberOfEmployeesSupport = 0;
+        int numberOfEmployeesOther = 0;
 
         for (int i = 0; i < employees.length; i++) {
             department = employees[i].getDepartment().toLowerCase();
@@ -49,9 +50,13 @@ public class EmployeeUtils {
             if (department.equals("support")) {
                 numberOfEmployeesSupport++;
             }
+            if (!(department.equals("it") || department.equals("management") || department.equals("support"))) {
+                numberOfEmployeesOther++;
+            }
         }
         return "Liczba pracowników w dziale IT: " + numberOfEmployeesIT
                 + "\nLiczba pracowników w dziale Management: " + numberOfEmployeesManagement
-                + "\nLiczba pracowników w dziale Support: " + numberOfEmployeesSupport;
+                + "\nLiczba pracowników w dziale Support: " + numberOfEmployeesSupport
+                + "\nLiczba pracowników w pozostałych działach: " + numberOfEmployeesOther;
     }
 }

@@ -1,7 +1,7 @@
 package com.example.main;
 
-import com.example.controller.EmployeeFileReader;
-import com.example.controller.EmployeeFileWriter;
+import com.example.utils.EmployeeFileReader;
+import com.example.utils.EmployeeFileWriter;
 import com.example.model.Employee;
 
 public class Main {

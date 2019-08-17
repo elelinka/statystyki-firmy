@@ -1,16 +1,12 @@
-package com.example.controller;
+package com.example.utils;
 
 import com.example.model.Employee;
-
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class EmployeeFileWriter {
     public static void writeEmployeesToFile(String path, Employee[] employees) {
-        File employeesFile = new File(path);
-
         try {
             FileWriter eFileWrite = new FileWriter(path);
             BufferedWriter bufferedWriter = new BufferedWriter(eFileWrite);
@@ -25,14 +21,6 @@ public class EmployeeFileWriter {
             bufferedWriter.close();
         } catch (IOException e) {
             System.out.println("nie odnaleziono pliku");
-        }
-
-        if (!employeesFile.exists()) {
-            try {
-                employeesFile.createNewFile();
-            } catch (IOException e) {
-                System.out.println("plik już istnieje");
-            }
         }
     }
 }
