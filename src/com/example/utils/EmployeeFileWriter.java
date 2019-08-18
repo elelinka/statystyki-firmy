@@ -7,6 +7,7 @@ import java.io.IOException;
 
 public class EmployeeFileWriter {
     public static void writeEmployeesToFile(String path, Employee[] employees) {
+        String department = "";
         try {
             FileWriter eFileWrite = new FileWriter(path);
             BufferedWriter bufferedWriter = new BufferedWriter(eFileWrite);
@@ -16,7 +17,10 @@ public class EmployeeFileWriter {
             bufferedWriter.newLine();
             bufferedWriter.write(EmployeeUtils.averageSalary(employees));
             bufferedWriter.newLine();
-            bufferedWriter.write(EmployeeUtils.numberOfEmployeesPerDepartment(employees));
+            for (Employee employee : employees) {
+                department = employee.getDepartment();
+                bufferedWriter.write(EmployeeUtils.numberOfEmployeesPerDepartment(employees, department));
+            }
             bufferedWriter.flush();
             bufferedWriter.close();
         } catch (IOException e) {

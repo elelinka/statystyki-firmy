@@ -32,31 +32,14 @@ public class EmployeeUtils {
         return "Największa wypłata: " + result;
     }
 
-    public static String numberOfEmployeesPerDepartment(Employee[] employees) {
-        String department = null;
-        int numberOfEmployeesIT = 0;
-        int numberOfEmployeesManagement = 0;
-        int numberOfEmployeesSupport = 0;
-        int numberOfEmployeesOther = 0;
+    public static String numberOfEmployeesPerDepartment(Employee[] employees, String department) {
+        int numberOfEmployees = 0;
 
         for (int i = 0; i < employees.length; i++) {
-            department = employees[i].getDepartment().toLowerCase();
-            if (department.equals("it")) {
-                numberOfEmployeesIT++;
-            }
-            if (department.equals("management")) {
-                numberOfEmployeesManagement++;
-            }
-            if (department.equals("support")) {
-                numberOfEmployeesSupport++;
-            }
-            if (!(department.equals("it") || department.equals("management") || department.equals("support"))) {
-                numberOfEmployeesOther++;
+            if (department.toLowerCase().equals(employees[i].getDepartment().toLowerCase())) {
+                numberOfEmployees++;
             }
         }
-        return "Liczba pracowników w dziale IT: " + numberOfEmployeesIT
-                + "\nLiczba pracowników w dziale Management: " + numberOfEmployeesManagement
-                + "\nLiczba pracowników w dziale Support: " + numberOfEmployeesSupport
-                + "\nLiczba pracowników w pozostałych działach: " + numberOfEmployeesOther;
+        return "Liczba pracowników w dziale " + department.toUpperCase() + ": " + numberOfEmployees + "\n";
     }
 }
